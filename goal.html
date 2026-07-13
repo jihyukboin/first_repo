@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="정지혁의 앞으로의 계획입니다.">
+    <title>SSAFY - I AM | 앞으로의 계획</title>
+    <link rel="stylesheet" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-gov.min.css">
+    <style>
+        :root {
+            --background: #ffffff;
+            --surface: rgba(255, 255, 255, 0.86);
+            --text: #191f28;
+            --text-secondary: #4e5968;
+            --line: rgba(25, 31, 40, 0.10);
+            --accent: #3182f6;
+            --header-height: 58px;
+            --content-width: 700px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100svh;
+            background: linear-gradient(135deg, #eef5e9 0%, #ffffff 48%, #f7f9fc 100%);
+            color: var(--text);
+            font-family: "Pretendard GOV", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            width: 100%;
+            height: var(--header-height);
+            padding: 0 28px;
+            border-bottom: 1px solid rgba(25, 31, 40, 0.06);
+            background: var(--surface);
+            backdrop-filter: blur(18px) saturate(140%);
+            -webkit-backdrop-filter: blur(18px) saturate(140%);
+        }
+
+        .header-left { font-size: 18px; font-weight: 750; letter-spacing: -0.04em; }
+        .header-center { display: flex; justify-content: center; gap: 18px; }
+
+        .header-center a {
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            transition: color 180ms ease;
+        }
+
+        .header-center a:hover,
+        .header-center a:focus-visible,
+        .header-center a[aria-current="page"] { color: var(--text); }
+
+        .header-right { min-width: 1px; }
+
+        main {
+            display: grid;
+            min-height: 100svh;
+            place-items: center;
+            padding: calc(var(--header-height) + 72px) 20px 72px;
+        }
+
+        .goal-card {
+            width: min(100%, var(--content-width));
+            padding: clamp(34px, 7vw, 64px);
+            border: 1px solid rgba(25, 31, 40, 0.08);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.88);
+            box-shadow: 0 24px 70px rgba(25, 31, 40, 0.08);
+        }
+
+        .eyebrow { color: var(--accent); font-size: 14px; font-weight: 720; letter-spacing: 0.02em; }
+
+        h1 {
+            margin-top: 12px;
+            font-size: clamp(30px, 5vw, 42px);
+            line-height: 1.28;
+            letter-spacing: -0.055em;
+        }
+
+        .goal-content {
+            display: grid;
+            gap: 24px;
+            margin-top: 38px;
+            padding-top: 30px;
+            border-top: 1px solid var(--line);
+        }
+
+        .goal-content p {
+            color: var(--text-secondary);
+            font-size: clamp(17px, 2.1vw, 19px);
+            font-weight: 430;
+            line-height: 1.9;
+            letter-spacing: -0.025em;
+            word-break: keep-all;
+        }
+
+        @media (max-width: 640px) {
+            :root { --header-height: 54px; }
+            header { padding: 0 18px; }
+            .header-left { font-size: 16px; }
+            .header-center { gap: 12px; }
+            .header-center a { font-size: 13px; }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-left">SSAFY - I AM</div>
+        <nav class="header-center" aria-label="주요 메뉴">
+            <a href="./index.html#about">소개</a>
+            <a href="./contact.html">연락처</a>
+            <a href="./goal.html" aria-current="page">앞으로의 계획</a>
+        </nav>
+        <div class="header-right"></div>
+    </header>
+
+    <main>
+        <section class="goal-card" aria-labelledby="goal-title">
+            <p class="eyebrow">NEXT STEP</p>
+            <h1 id="goal-title">앞으로의 계획</h1>
+            <div class="goal-content">
+                <p>홍길동은 프론트엔드를 화면 구현에 한정하지 않고 제품과 시스템 사이를 연결하는 역할로 바라봅니다. 브라우저 렌더링, 네트워크, 서버 사이드 렌더링과 웹 성능에 대한 이해를 계속 넓히며, 사용자가 체감하는 품질과 팀이 유지할 수 있는 구조를 함께 개선하고자 합니다.</p>
+                <p>새로운 기술을 빠르게 도입하는 것보다 문제에 적합한 기술을 선택하고 그 선택을 설명할 수 있는 개발자를 지향합니다. 작고 명확한 개선을 반복하며 오래 사용할 수 있는 제품을 만드는 것이 홍길동의 다음 목표입니다.</p>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

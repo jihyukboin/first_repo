@@ -147,30 +147,14 @@
             min-height: 100svh;
             flex-direction: column;
             align-items: center;
-            padding: clamp(104px, 13vh, 142px) 20px 116px;
+            justify-content: center;
+            padding: calc(var(--header-height) + 64px) 20px 116px;
         }
 
-        .thumbnail-placeholder {
-            display: block;
-            width: 90%;
-            max-width: var(--content-width);
-            aspect-ratio: 7 / 4;
-            margin-bottom: 24px;
-            border-radius: 12px;
-            background-color: #e5e7eb;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .hero-title {
-            color: var(--text);
-            font-size: clamp(28px, 4vw, 38px);
-            font-weight: 780;
-            line-height: 1.28;
-            letter-spacing: -0.055em;
-            text-align: center;
-            word-break: keep-all;
+        #hero-section #about {
+            width: min(100%, var(--content-width));
+            padding: 0;
+            background: transparent;
         }
 
         #more-btn {
@@ -301,6 +285,11 @@
 
         #problem-solving {
             --section-background: var(--section-problem-solving);
+        }
+
+        #problem-solving h3,
+        #problem-solving h3+p {
+            display: none;
         }
 
         #direction {
@@ -559,7 +548,7 @@
 
             #hero-section {
                 min-height: 100svh;
-                padding: 100px 16px 108px;
+                padding: calc(var(--header-height) + 42px) 16px 108px;
             }
 
             .thumbnail-placeholder,
@@ -708,13 +697,23 @@
     </aside>
 
     <main>
-        <section id="hero-section" aria-labelledby="hero-title">
+        <section id="hero-section" aria-label="소개">
+            <!-- Previous hero image and title removed.
             <img class="thumbnail-placeholder" src="./asset/hero-main-image.png" alt="홍길동 포트폴리오 대표 이미지">
 
             <h1 class="hero-title" id="hero-title">
                 I AM | 바이브코딩을 활용한 개인 PJT
             </h1>
+            -->
 
+            <!-- Previous more button removed.
+            <button id="more-btn" type="button" aria-label="포트폴리오 펼치기" aria-controls="portfolio-section"
+                aria-expanded="false">
+                <svg class="chevron-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 9l6 6 6-6"></path>
+                </svg>
+            </button>
+            -->
             <button id="more-btn" type="button" aria-label="포트폴리오 펼치기" aria-controls="portfolio-section"
                 aria-expanded="false">
                 <svg class="chevron-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -834,8 +833,7 @@
                                 <h2>문제 해결 방식</h2>
 
                                 <p>
-                                    문제를 발견하면 바로 코드를 바꾸기보다 먼저 재현 조건과 영향을 받는 범위를 정리합니다. 네트워크 요청, 렌더링 시간, 브라우저 이벤트와 사용자 행동을
-                                    분리해 관찰하고, 개선 전후를 같은 조건에서 비교할 수 있는 기준을 만듭니다.
+                                    문제가 발생했을 때, 발생 원인과 앞으로의 확장을 염두에 두고 가장 좋은 해결책을 고민하는 편입니다.
                                 </p>
 
                                 <p>
@@ -844,12 +842,6 @@
                                     범위 축소, 캐시 정책 정리처럼 원인에 가까운 변경을 우선합니다.
                                 </p>
 
-                                <h3>예측 가능한 실패를 설계합니다</h3>
-
-                                <p>
-                                    좋은 화면은 성공한 상황만 자연스러운 화면이 아닙니다. 로딩, 빈 결과, 권한 부족, 네트워크 단절과 서버 오류를 별도의 예외가 아니라 제품 흐름의
-                                    일부로 취급합니다. 사용자가 현재 상태와 다음 행동을 이해할 수 있도록 메시지와 복구 수단을 함께 제공합니다.
-                                </p>
                             </div>
                         </section>
 
@@ -912,12 +904,25 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const moreBtn = document.getElementById("more-btn");
+            const heroSection = document.getElementById("hero-section");
+            const aboutSection = document.getElementById("about");
             const portfolioSection = document.getElementById("portfolio-section");
             const sideToc = document.getElementById("side-toc");
+            const stackSection = document.getElementById("stack");
+            const projectsSection = document.getElementById("projects");
+            const stackTocItem = sideToc.querySelector('[data-section="stack"]').parentElement;
+            const projectsTocItem = sideToc.querySelector('[data-section="projects"]').parentElement;
+
+            projectsSection.parentElement.insertBefore(projectsSection, stackSection);
+            stackTocItem.parentElement.insertBefore(projectsTocItem, stackTocItem);
+
             const tocLinks = [...sideToc.querySelectorAll("a[data-section]")];
             const sections = [...document.querySelectorAll("[data-observe]")];
             const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+            const portfolioRevealDelay = prefersReducedMotion.matches ? 0 : 740;
             let isOpen = false;
+
+            heroSection.insertBefore(aboutSection, moreBtn);
 
             const setActiveLink = (sectionId) => {
                 tocLinks.forEach((link) => {
@@ -937,6 +942,8 @@
             };
 
             const revealPortfolio = (shouldScroll = true) => {
+                const wasClosed = !isOpen;
+
                 if (!isOpen) {
                     isOpen = true;
                     portfolioSection.classList.add("is-open");
@@ -953,8 +960,10 @@
                             behavior: prefersReducedMotion.matches ? "auto" : "smooth",
                             block: "start"
                         });
-                    }, 40);
+                    }, wasClosed ? portfolioRevealDelay : 40);
                 }
+
+                return wasClosed;
             };
 
             moreBtn.addEventListener("click", () => {
@@ -966,14 +975,14 @@
                     event.preventDefault();
 
                     const target = document.getElementById(link.dataset.section);
-                    revealPortfolio(false);
+                    const wasClosed = revealPortfolio(false);
 
                     window.setTimeout(() => {
                         target?.scrollIntoView({
                             behavior: prefersReducedMotion.matches ? "auto" : "smooth",
                             block: "start"
                         });
-                    }, 40);
+                    }, wasClosed ? portfolioRevealDelay : 40);
                 });
             });
 
