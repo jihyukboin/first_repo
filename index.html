@@ -31,7 +31,6 @@
             --section-stack: #eaf6f2;
             --section-projects: #f2eef9;
             --section-problem-solving: #faf1e7;
-            --section-collaboration: #eaf2fa;
             --section-direction: #eef5e9;
         }
 
@@ -288,10 +287,6 @@
             --section-background: var(--section-problem-solving);
         }
 
-        #collaboration {
-            --section-background: var(--section-collaboration);
-        }
-
         #direction {
             --section-background: var(--section-direction);
             padding-bottom: 154px;
@@ -328,8 +323,7 @@
             margin-top: 24px;
         }
 
-        .stack-list,
-        .principle-list {
+        .stack-list {
             display: grid;
             gap: 0;
             margin-top: 34px;
@@ -337,8 +331,7 @@
             list-style: none;
         }
 
-        .stack-list li,
-        .principle-list li {
+        .stack-list li {
             display: grid;
             grid-template-columns: minmax(118px, 0.32fr) 1fr;
             gap: 28px;
@@ -346,8 +339,7 @@
             border-bottom: 1px solid var(--line);
         }
 
-        .stack-list strong,
-        .principle-list strong {
+        .stack-list strong {
             color: var(--text);
             font-size: 16px;
             font-weight: 720;
@@ -355,8 +347,7 @@
             letter-spacing: -0.025em;
         }
 
-        .stack-list span,
-        .principle-list span {
+        .stack-list span {
             color: var(--text-secondary);
             font-size: 16px;
             line-height: 1.75;
@@ -558,8 +549,7 @@
                 margin-top: 42px;
             }
 
-            .stack-list li,
-            .principle-list li {
+            .stack-list li {
                 grid-template-columns: 1fr;
                 gap: 7px;
                 padding: 21px 0;
@@ -648,7 +638,6 @@
             <li><a href="#stack" data-section="stack">기술 스택</a></li>
             <li><a href="#projects" data-section="projects">프로젝트</a></li>
             <li><a href="#problem-solving" data-section="problem-solving">문제 해결</a></li>
-            <li><a href="#collaboration" data-section="collaboration">협업과 품질</a></li>
             <li><a href="#direction" data-section="direction">앞으로</a></li>
         </ul>
     </aside>
@@ -677,22 +666,18 @@
                             <div class="article-section-inner">
                                 <h2>안녕하세요, SSAFY 16기 정지혁입니다</h2>
                                 <p>
-                                    다양한 아이디어를 실제 서비스로 만드는 것을 좋아합니다.
-
-                                </p>
-
-                                <p>
-                                    SSAFY 에서 다양한 프로젝트를 진행하며 함께 성장하려고 합니다.
+                                    다양한 아이디어를 실제 서비스로 만드는 것을 좋아합니다.<br>
+                                    SSAFY 에 계신 분들과 다양한 프로젝트를 경험하며 함께 성장하고 싶습니다.  
                                 </p>
 
                                 <p>
 
-                                    자격증 시험 학습 서비스의 개선 포인트와 개인화 서비스를 합친 임고봇이라는 웹사이트를 운영하고 있습니다.
+                                    누적 사용자 2,000+, 관련 도메인 검색 노출 상위권을 차지한 <br>'임고봇' 웹사이트를 운영하고 있습니다. 
 
 
                                 </p>
                                 <p>
-                                    총 2,000+명의 회원수를 기록하였고, 관련 도메인에서 검색노출 상위권을 차지하고 있습니다.
+                                    
                                 </p>
                             </div>
                         </section>
@@ -702,14 +687,13 @@
                                 <h2>기술 스택</h2>
 
                                 <p>
-                                    웹 표준을 기반으로 한 견고한 구현을 우선합니다. 특정 도구에 화면 구조를 종속시키기보다 HTML의 의미, CSS의 레이아웃 원리,
-                                    JavaScript의 실행 모델을 이해하고 프로젝트의 규모와 팀 상황에 맞는 기술을 선택합니다.
+                                    실 서비스 운영 경험을 바탕으로 프론트앤드, 백앤드, DB , 클라우드 등 <br>다양한 기술을 사용해보며 프로젝트의 규모와 상황에 맞는 기술을 선택하였습니다.
                                 </p>
 
                                 <ul class="stack-list">
                                     <li>
                                         <strong>Next.js</strong>
-                                        <span>서버 사이드 랜더링 기술을 통한 SEO 최적화, 화면 로딩 속도 개선등의
+                                        <span>서버 사이드 랜더링 기술을 통한 SEO 최적화, 화면 로딩 속도 개선의<br>
                                             효과를 보기 위해 채택하였습니다. </span>
                                     </li>
 
@@ -725,7 +709,7 @@
 
                                     <li>
                                         <strong>AWS</strong>
-                                        <span>ECS , RDS , Elastic Beanstalk, cognito , cloudfront, SES , S3 등 배포부터
+                                        <span>ECS , RDS , Elastic Beanstalk, cognito , cloudfront, SES , S3 등<br>배포부터
                                             유지보수까지 클라우드 인프라를 관리할 수 있습니다.</span>
                                     </li>
 
@@ -738,8 +722,8 @@
                                 <h2>프로젝트</h2>
 
                                 <p>
-                                    저는 단순 구현으로만 끝나지 않는 지속 가능한 프로젝트를 만들고자 노력하고 있습니다.<br>다음 두 프로젝트는 제가 진행했던 프로젝트 중 가장 반응이
-                                    좋았던 프로젝트입니다.
+                                    저는 단순 구현을 넘어, 지속 가능한 프로젝트를 만들고자 노력합니다. <br>제가 진행했던 프로젝트 중 가장 반응이
+                                    좋은 프로젝트입니다.
                                 </p>
 
                                 <div class="project-block">
@@ -806,7 +790,7 @@
                             </div>
                         </section>
 
-                        <section class="article-section" id="collaboration" data-observe>
+                        <!-- Collaboration and quality section removed.
                             <div class="article-section-inner">
                                 <h2>협업과 품질</h2>
 
@@ -839,6 +823,7 @@
                                 </ul>
                             </div>
                         </section>
+                        -->
 
                         <section class="article-section" id="direction" data-observe>
                             <div class="article-section-inner">
