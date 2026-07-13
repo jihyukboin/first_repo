@@ -70,7 +70,17 @@
         }
 
         .project-block h3 {
+            display: flex;
+            align-items: center;
+            gap: 9px;
             text-decoration: underline;
+        }
+
+        .project-favicon {
+            width: 24px;
+            height: 24px;
+            flex: 0 0 24px;
+            border-radius: 5px;
         }
 
         a,
@@ -108,6 +118,12 @@
             letter-spacing: -0.02em;
             text-decoration: none;
             transition: color 180ms ease;
+        }
+
+        .header-center {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
         }
 
         .header-center a:hover,
@@ -323,6 +339,45 @@
             margin-top: 24px;
         }
 
+        .intro-greeting {
+            margin-bottom: 24px;
+        }
+
+        .intro-greeting strong {
+            color: var(--text);
+            font-size: clamp(21px, 2.7vw, 25px);
+            font-weight: 720;
+            line-height: 1.42;
+            letter-spacing: -0.04em;
+        }
+
+        .intro-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            margin: 0;
+            border-radius: 18px;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: 0 18px 54px rgba(25, 31, 40, 0.10);
+        }
+
+        #about .article-section-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+            column-gap: clamp(32px, 6vw, 58px);
+            align-items: start;
+        }
+
+        #about .article-section-inner h2 {
+            grid-column: 1 / -1;
+        }
+
+        #about .intro-image {
+            grid-column: 2;
+            grid-row: 2 / span 3;
+        }
+
         .stack-list {
             display: grid;
             gap: 0;
@@ -377,14 +432,14 @@
             width: var(--toc-width);
             padding: 4px 0 4px 18px;
             border-left: 1px solid var(--line);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-8px);
-            pointer-events: none;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
             transition:
                 opacity 280ms ease,
                 transform 280ms ease,
-                visibility 0s linear 280ms;
+                visibility 0s linear 0s;
         }
 
         .side-toc.is-visible {
@@ -537,6 +592,15 @@
                 transform: none;
             }
 
+            #about .article-section-inner {
+                display: block;
+            }
+
+            #about .intro-image {
+                width: min(100%, 420px);
+                margin: 0 auto 30px;
+            }
+
             #direction {
                 padding-bottom: 116px;
             }
@@ -627,6 +691,7 @@
 
         <nav class="header-center" aria-label="주요 메뉴">
             <a href="#about">소개</a>
+            <a href="./contact.html">연락처</a>
         </nav>
 
         <div class="header-right"></div>
@@ -664,18 +729,14 @@
                     <article class="article">
                         <section class="article-section" id="about" data-observe>
                             <div class="article-section-inner">
-                                <h2>안녕하세요, SSAFY 16기 정지혁입니다</h2>
+                                <h2>소개</h2>
+                                <img class="intro-image" src="./asset/jihyuk-image.jpeg" alt="정지혁 프로필 사진">
+                                <p class="intro-greeting"><strong>안녕하세요, SSAFY 16기 정지혁입니다</strong></p>
                                 <p>
                                     다양한 아이디어를 실제 서비스로 만드는 것을 좋아합니다.<br>
                                     SSAFY 에 계신 분들과 다양한 프로젝트를 경험하며 함께 성장하고 싶습니다.  
                                 </p>
 
-                                <p>
-
-                                    누적 사용자 2,000+, 관련 도메인 검색 노출 상위권을 차지한 <br>'임고봇' 웹사이트를 운영하고 있습니다. 
-
-
-                                </p>
                                 <p>
                                     
                                 </p>
@@ -728,6 +789,7 @@
 
                                 <div class="project-block">
                                     <h3>
+                                        <img class="project-favicon" src="https://imgobot.com/favicon.ico" alt="" aria-hidden="true">
                                         <a href="https://imgobot.com" target="_blank" rel="noopener noreferrer">
                                             임고봇
                                         </a>
@@ -746,6 +808,7 @@
 
                                 <div class="project-block">
                                     <h3>
+                                        <img class="project-favicon" src="https://reviewinkorea.com/favicon.ico" alt="" aria-hidden="true">
                                         <a href="https://reviewinkorea.com" target="_blank" rel="noopener noreferrer">
                                             리뷰인코리아
                                         </a>
